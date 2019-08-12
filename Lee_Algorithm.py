@@ -16,7 +16,21 @@ def BFS(mat_in,xs,ys,xe,ye):
     queue.append(Node(xs,ys,0))
     while queue:
         curNode=queue.pop()
-    return 0   
+        #check the node first
+        if curNode.x == xe and curNode.y == ye:
+            return curNode.distance
+        else:
+            visited[curNode.x][curNode.y] = 1
+        #add the node's neighbors
+        if IsValid(mat_in,visited,curNode.x-1,curNode.y):
+            queue.append(Node(curNode.x-1,curNode.y,curNode.distance+1))
+        elif IsValid(mat_in,visited,curNode.x+1,curNode.y):
+            queue.append(Node(curNode.x+1,curNode.y,curNode.distance+1))
+        elif IsValid(mat_in,visited,curNode.x,curNode.y-1):
+            queue.append(Node(curNode.x,curNode.y-1,curNode.distance+1))
+        elif IsValid(mat_in,visited,curNode.x,curNode.y+1):
+            queue.append(Node(curNode.x,curNode.y+1,curNode.distance+1))       
+    return -1   
 
 def main():
     # input a test maze
