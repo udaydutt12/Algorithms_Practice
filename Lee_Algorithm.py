@@ -7,6 +7,12 @@ class Node:
         self.y = y
         self.distance = d
 def IsValid(mat_in,visited,i,j):
+    r=len(mat_in)
+    c=len(mat_in[0])
+    if i>r or j>c or i<0 or j<0:
+        return False
+    if mat_in[i][j]==0 or visited[i][j]:
+        return False
     return True
 def BFS(mat_in,xs,ys,xe,ye):
     num_row=len(mat_in)
@@ -15,7 +21,7 @@ def BFS(mat_in,xs,ys,xe,ye):
     queue=[]
     queue.append(Node(xs,ys,0))
     while queue:
-        curNode=queue.pop()
+        curNode=queue.pop(0)
         #check the node first
         if curNode.x == xe and curNode.y == ye:
             return curNode.distance
