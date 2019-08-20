@@ -63,7 +63,7 @@ def merge_sort(list1):
         p2=0
         n2=len(list2)
         n3=len(list3)
-        while p1<n2 || p2<n3:
+        while p1<n2 or p2<n3:
             if p1==n2:
                 while p2<n3:
                     list4.append[list3[p2]]
