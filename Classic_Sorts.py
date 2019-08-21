@@ -81,9 +81,7 @@ def merge_sort(list1):
                 list4.append(list3[p2])
                 p2+=1
         return list4
-#Heap Sort
-def heap_sort(list1):
-
+        
 #counting sort
 def counting_sort(list1):
     
